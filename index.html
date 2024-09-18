@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Madhavan Panchangam - Home</title>
+    <!-- Include Roboto font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="css/landing-styles.css">
+</head>
+<body>
+
+<!-- Canvas Element -->
+<canvas id="canvas"></canvas>
+
+<div class="container">
+    <!-- Navigation Component -->
+    <div class="scaling-wrapper" id="navigation">
+        <svg class="svg-container" width="400" height="400" viewBox="0 0 400 400">
+            <!-- Define circle paths -->
+            <defs>
+                <!-- Circle paths for each navigation item -->
+                <path id="circle1" d="M200,200 m-145,0 a145,145 0 1,1 290,0 a145,145 0 1,1 -290,0" />
+                <path id="circle2" d="M200,200 m-145,0 a145,145 0 1,1 290,0 a145,145 0 1,1 -290,0" transform="rotate(60,200,200)" />
+                <path id="circle3" d="M200,200 m-145,0 a145,145 0 1,1 290,0 a145,145 0 1,1 -290,0" transform="rotate(120,200,200)" />
+                <path id="circle4" d="M200,200 m-145,0 a145,145 0 1,1 290,0 a145,145 0 1,1 -290,0" transform="rotate(180,200,200)" />
+                <path id="circle5" d="M200,200 m-145,0 a145,145 0 1,1 290,0 a145,145 0 1,1 -290,0" transform="rotate(240,200,200)" />
+                <path id="circle6" d="M200,200 m-145,0 a145,145 0 1,1 290,0 a145,145 0 1,1 -290,0" transform="rotate(300,200,200)" />
+            </defs>
+
+            <!-- Text along paths -->
+            <a xlink:href="#portfolio">
+                <text font-size="18" text-anchor="middle" font-weight="bold">
+                    <textPath xlink:href="#circle1" startOffset="50%">FOLIO</textPath>
+                </text>
+            </a>
+            <a xlink:href="#work">
+                <text font-size="18" text-anchor="middle" font-weight="bold">
+                    <textPath xlink:href="#circle2" startOffset="50%">WORK</textPath>
+                </text>
+            </a>
+            <a xlink:href="#skills">
+                <text font-size="18" text-anchor="middle" font-weight="bold">
+                    <textPath xlink:href="#circle3" startOffset="50%">SKILLS</textPath>
+                </text>
+            </a>
+            <a xlink:href="#contact">
+                <text font-size="18" text-anchor="middle" font-weight="bold">
+                    <textPath xlink:href="#circle4" startOffset="50%">CONTACT</textPath>
+                </text>
+            </a>
+            <a xlink:href="#blog">
+                <text font-size="18" text-anchor="middle" font-weight="bold">
+                    <textPath xlink:href="#circle5" startOffset="50%">BLOG</textPath>
+                </text>
+            </a>
+            <a xlink:href="#study">
+                <text font-size="18" text-anchor="middle" font-weight="bold">
+                    <textPath xlink:href="#circle6" startOffset="50%">STUDY</textPath>
+                </text>
+            </a>
+        </svg>
+    </div>
+
+    <!-- Logo Component -->
+    <div class="logo-container">
+        <div class="logo" id="logo">
+            <span class="bracket">[</span>
+            <div class="vector-content">
+                <span>M</span>
+                <span>P</span>
+            </div>
+            <span class="bracket">]</span>
+        </div>
+        <div class="circle" id="circle"></div>
+        <!-- Magnitude Bars -->
+        <div class="vector-bars">
+            <div class="vector-bar"></div>
+            <div class="vector-bar"></div>
+            <div class="vector-bar"></div>
+            <div class="vector-bar"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Link to external JavaScript -->
+<script src="js/landing-scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+/* General Reset and Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    /* Remove background color to make canvas visible */
+    /* background-color: #E1DEDD; */
+    background: none;
+}
+
+/* Centering Container */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* Add a background color to the container */
+    background-color: #E1DEDD;
+    z-index: 1; /* Ensure container is above the canvas */
+}
+
+/* Logo Styles */
+.logo-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    padding: 40px;
+    z-index: 3; /* Bring logo above other elements */
+}
+
+.logo {
+    font-size: 48px;
+    transition: all 0.5s ease;
+    white-space: nowrap;
+    font-weight: 700;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.vector-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.bracket {
+    display: inline-block;
+    transition: opacity 0.5s ease;
+    font-size: 100px;
+    line-height: 0.9;
+    font-weight: 300;
+}
+
+.circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #E1DEDD;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+/* Magnitude Bars */
+.vector-bars {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1; /* Ensure bars are below the logo text */
+}
+
+.vector-bar {
+    position: absolute;
+    background-color: #000;
+    width: 6px;
+    height: 50%;
+    top: 50px;
+}
+
+.vector-bar:nth-child(1), .vector-bar:nth-child(2) { left: 30px; }
+.vector-bar:nth-child(3), .vector-bar:nth-child(4) { right: 30px; }
+.vector-bar:nth-child(2) { left: 15px; }
+.vector-bar:nth-child(3) { right: 15px; }
+
+/* Navigation Styles */
+.scaling-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    transition: transform 0.5s ease;
+    z-index: 0; /* Ensure navigation is behind the magnitude bars */
+}
+
+.svg-container {
+    transform-origin: center;
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+a {
+    text-decoration: none;
+    fill: black;
+}
+
+/* Adjust Circle Initial Size */
+.circle {
+    width: 320px;
+    height: 320px;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .circle {
+        width: 240px;
+        height: 240px;
+    }
+}
+
+/* Canvas Styling */
+#canvas {
+    position: fixed; /* Use fixed positioning to cover the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* Place canvas below the logo but above the container background */
+    pointer-events: none; /* Allow clicks to pass through the canvas */
+}
