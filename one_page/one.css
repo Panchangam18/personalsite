@@ -1,0 +1,760 @@
+/* General Reset and Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: auto;
+    font-family: 'Roboto', sans-serif;
+    /* Remove background color to make canvas visible */
+    /* background-color: #E1DEDD; */
+    background: none;
+}
+
+/* Centering Container */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* Add a background color to the container */
+    background-color: #E1DEDD;
+    z-index: 1; /* Ensure container is above the canvas */
+}
+
+/* Logo Styles */
+.logo-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    padding: 40px;
+    z-index: 3; /* Bring logo above other elements */
+}
+
+.logo {
+    font-size: 48px;
+    transition: all 0.5s ease;
+    white-space: nowrap;
+    font-weight: 700;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.vector-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.bracket {
+    display: inline-block;
+    transition: opacity 0.5s ease;
+    font-size: 100px;
+    line-height: 0.9;
+    font-weight: 300;
+}
+
+.circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #E1DEDD;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+/* Magnitude Bars */
+.vector-bars {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1; /* Ensure bars are below the logo text */
+}
+
+.vector-bar {
+    position: absolute;
+    background-color: #000;
+    width: 6px;
+    height: 50%;
+    top: 50px;
+}
+
+.vector-bar:nth-child(1), .vector-bar:nth-child(2) { left: 30px; }
+.vector-bar:nth-child(3), .vector-bar:nth-child(4) { right: 30px; }
+.vector-bar:nth-child(2) { left: 15px; }
+.vector-bar:nth-child(3) { right: 15px; }
+
+/* Navigation Styles */
+.scaling-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    transition: transform 0.5s ease;
+    z-index: 0; /* Ensure navigation is behind the magnitude bars */
+    overflow: visible;
+}
+
+.svg-container {
+    transform-origin: center;
+    animation: rotate 20s linear infinite;
+    overflow: visible;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+a {
+    text-decoration: none;
+    fill: black;
+}
+
+/* Adjust Circle Initial Size */
+.circle {
+    width: 320px;
+    height: 320px;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .circle {
+        width: 240px;
+        height: 240px;
+    }
+}
+
+/* Canvas Styling */
+#canvas {
+    position: fixed; /* Use fixed positioning to cover the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* Place canvas below the logo but above the container background */
+    pointer-events: none; /* Allow clicks to pass through the canvas */
+}
+
+section {
+    padding: 100px 20px;
+    min-height: auto; /* Ensures each section occupies at least the full viewport height */
+    box-sizing: border-box;
+}
+
+#study {
+    background-color: #E1DEDD;
+    color: rgb(0, 0, 0);
+    padding: 100px 20px;
+}
+
+#study h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5em;
+    position: relative;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Vertical line */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #000000;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+
+/* Timeline items */
+.timeline-item {
+    padding: 20px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.timeline-item:nth-of-type(odd) {
+    left: 0;
+}
+
+.timeline-item:nth-of-type(even) {
+    left: 50%;
+}
+
+/* Content boxes */
+.timeline-content {
+    padding: 20px 30px;
+    background-color: #8c7d77;
+    position: relative;
+    border-radius: 6px;
+}
+
+/* Headings and text */
+.timeline-content h3 {
+    margin-top: 0;
+    color: #000000;
+    font-size: 1.5em;
+}
+
+.timeline-content .institution,
+.timeline-content .date {
+    display: block;
+    font-size: 1em;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+/* Timeline icons */
+.timeline-icon {
+    position: absolute;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    background-color: #000000;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Position icons */
+.timeline-item:nth-child(odd) .timeline-icon {
+    right: -10px;
+}
+
+.timeline-item:nth-child(even) .timeline-icon {
+    left: -10px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    /* Make timeline narrower on small screens */
+    .timeline::after {
+        left: 31px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .timeline-item:nth-child(even) {
+        left: 0%;
+    }
+
+    .timeline-item:nth-child(odd) {
+        left: 0%;
+    }
+
+    /* Adjust timeline icons */
+    .timeline-item .timeline-icon {
+        left: 15px;
+        right: auto;
+    }
+
+    /* Adjust content boxes */
+    .timeline-content {
+        padding: 20px;
+    }
+}
+
+#folio {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 100px 20px; /* Top/Bottom and Left/Right padding */
+}
+
+#folio h2 {
+    text-align: center; /* Center the heading */
+    font-size: 2.5em; /* Large font size for prominence */
+    margin-bottom: 50px; /* Space below the heading */
+    color: #333333; /* Dark gray color for the heading */
+    font-family: 'Roboto', sans-serif; /* Consistent font */
+}
+
+/* Portfolio Container */
+.portfolio-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on small screens */
+    gap: 30px; /* Space between grid items */
+    max-width: 1200px; /* Maximum width of the container */
+    margin: 0 auto; /* Center the container */
+}
+
+/* Responsive Grid Layout */
+@media (min-width: 600px) {
+    .portfolio-container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
+    }
+}
+
+@media (min-width: 900px) {
+    .portfolio-container {
+        grid-template-columns: repeat(3, 1fr); /* Three columns on large screens */
+    }
+}
+
+/* Portfolio Card */
+.portfolio-card {
+    background-color: #ffffff; /* White background for the card */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow: hidden; /* Clip overflowing child elements */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover Effects */
+.portfolio-card:hover {
+    transform: translateY(-5px); /* Slightly lift the card */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+/* Project Image */
+.portfolio-image {
+    width: 100%; /* Full width of the card */
+    height: 200px; /* Fixed height */
+    object-fit: cover; /* Maintain aspect ratio, cover the container */
+}
+
+/* Project Content */
+.portfolio-content {
+    padding: 20px; /* Space inside the content area */
+    font-family: 'Roboto', sans-serif; /* Consistent font */
+}
+
+/* Project Title */
+.portfolio-content h3 {
+    font-size: 1.5em; /* Larger font size */
+    margin-bottom: 10px; /* Space below the title */
+    color: #4c51bf; /* Indigo color for the title */
+}
+
+/* Project Description */
+.portfolio-content p {
+    font-size: 1em; /* Standard font size */
+    color: #555555; /* Medium gray for description */
+    margin-bottom: 15px; /* Space below the description */
+    line-height: 1.6; /* Comfortable line spacing */
+}
+
+/* Project Link */
+.portfolio-link {
+    display: inline-block; /* Aligns the link as a block */
+    padding: 10px 20px; /* Space inside the link */
+    background-color: #4c51bf; /* Indigo background */
+    color: #ffffff; /* White text */
+    border-radius: 4px; /* Slightly rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-weight: 600; /* Semi-bold text */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.portfolio-link:hover {
+    background-color: #434190; /* Darker indigo on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Responsive Image Heights */
+@media (min-width: 600px) {
+    .portfolio-image {
+        height: 220px; /* Slightly taller on medium screens */
+    }
+}
+
+@media (min-width: 900px) {
+    .portfolio-image {
+        height: 240px; /* Taller on large screens */
+    }
+}
+
+#contact {
+    background-color: #4a5568; /* Dark gray background */
+    color: #ffffff; /* White text for contrast */
+    padding: 100px 20px; /* Top/Bottom and Left/Right padding */
+    font-family: 'Roboto', sans-serif; /* Consistent font */
+}
+
+#contact h2 {
+    text-align: center; /* Center the heading */
+    font-size: 2.5em; /* Large font size for prominence */
+    margin-bottom: 50px; /* Space below the heading */
+    color: #ffffff; /* White color for the heading */
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px; /* Maximum width of the container */
+    margin: 0 auto; /* Center the container */
+    gap: 40px; /* Space between contact methods */
+}
+
+.contact-method {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #2d3748; /* Slightly darker background */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-method:hover {
+    background-color: #4c51bf; /* Indigo background on hover */
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.contact-icon {
+    margin-right: 20px; /* Space between icon and info */
+    flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.contact-info h3 {
+    margin: 0; /* Remove default margin */
+    font-size: 1.5em; /* Larger font size for labels */
+    color: #ffffff; /* White color for labels */
+}
+
+.contact-info a {
+    color: #cbd5e0; /* Light gray color for links */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2em; /* Slightly larger font size */
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #ffffff; /* White color on hover */
+}
+
+@media (min-width: 600px) {
+    .contact-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .contact-method {
+        width: 45%; /* Adjust width on medium screens */
+    }
+}
+
+#work {
+    background-color: #f0f4f8; /* Light background to differentiate from other sections */
+    padding: 80px 20px; /* Top/Bottom and Left/Right padding */
+    font-family: 'Roboto', sans-serif; /* Consistent font */
+}
+
+#work h2 {
+    text-align: center; /* Center the heading */
+    font-size: 2.5em; /* Large font size for prominence */
+    margin-bottom: 50px; /* Space below the heading */
+    color: #2d3748; /* Dark gray color for the heading */
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px; /* Maximum width of the timeline */
+    margin: 0 auto; /* Center the timeline */
+    padding: 20px 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #4c51bf; /* Indigo color for the timeline line */
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px; /* Center the line */
+}
+
+.timeline-item {
+    padding: 20px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: #4c51bf; /* Indigo color for the dot */
+    border: 4px solid #ffffff; /* White border around the dot */
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -10px;
+}
+
+.timeline-content {
+    padding: 20px 30px;
+    background-color: #ffffff; /* White background for the content */
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: #4a5568; /* Dark gray color for job titles */
+    font-size: 1.5em; /* Larger font size */
+}
+
+.work-duration {
+    display: block;
+    font-size: 1em; /* Standard font size for duration */
+    color: #718096; /* Medium gray color for duration */
+    margin-bottom: 15px; /* Space below the duration */
+}
+
+.timeline-content p {
+    font-size: 1em; /* Standard font size for descriptions */
+    color: #4a5568; /* Dark gray color for text */
+    margin-bottom: 15px; /* Space below the description */
+    line-height: 1.6; /* Comfortable line spacing */
+}
+
+.work-responsibilities {
+    list-style-type: disc; /* Bullet points */
+    padding-left: 20px; /* Indent bullet points */
+    margin-bottom: 15px; /* Space below the list */
+    color: #4a5568; /* Dark gray color for list items */
+}
+
+.work-responsibilities li {
+    margin-bottom: 8px; /* Space between list items */
+}
+
+.work-link {
+    display: inline-block; /* Aligns the link as a block */
+    padding: 10px 20px; /* Space inside the link */
+    background-color: #4c51bf; /* Indigo background */
+    color: #ffffff; /* White text */
+    border-radius: 4px; /* Slightly rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-weight: 600; /* Semi-bold text */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.work-link:hover {
+    background-color: #434190; /* Darker indigo on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* ------------------------ */
+/* Responsive Design */
+/* ------------------------ */
+
+@media (max-width: 600px) {
+    /* Make the timeline vertical on small screens */
+    .timeline::after {
+        left: 31px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .timeline-item:nth-child(even) {
+        left: 0%;
+    }
+
+    .timeline-item::after {
+        left: 60px;
+    }
+}
+
+#skills {
+    background-color: #ffffff; /* White background to maintain consistency */
+    padding: 80px 20px; /* Top/Bottom and Left/Right padding */
+    font-family: 'Roboto', sans-serif; /* Consistent font */
+}
+
+#skills h2 {
+    text-align: center; /* Center the heading */
+    font-size: 2.5em; /* Large font size for prominence */
+    margin-bottom: 50px; /* Space below the heading */
+    color: #2d3748; /* Dark gray color for the heading */
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* Space between skill items */
+    max-width: 1200px; /* Maximum width of the container */
+    margin: 0 auto; /* Center the container */
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px; /* Space between text and image */
+}
+
+.skill-item.reverse {
+    flex-direction: row-reverse; /* Reverse the order for alternating layout */
+}
+
+.skill-text {
+    flex: 1; /* Allow text to take up available space */
+}
+
+.skill-text h3 {
+    font-size: 1.8em; /* Larger font size for skill titles */
+    color: #4a5568; /* Dark gray color for titles */
+    margin-bottom: 15px; /* Space below the title */
+}
+
+.skill-text p {
+    font-size: 1em; /* Standard font size for descriptions */
+    color: #4a5568; /* Dark gray color for text */
+    margin-bottom: 15px; /* Space below the paragraph */
+    line-height: 1.6; /* Comfortable line spacing */
+}
+
+.skill-list {
+    list-style-type: disc; /* Bullet points */
+    padding-left: 20px; /* Indent bullet points */
+    color: #4a5568; /* Dark gray color for list items */
+}
+
+.skill-list li {
+    margin-bottom: 8px; /* Space between list items */
+}
+
+.skill-image img {
+    width: 100%;
+    max-width: 300px; /* Limit image width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for images */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.skill-image img:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.work-link {
+    display: inline-block; /* Aligns the link as a block */
+    padding: 10px 20px; /* Space inside the link */
+    background-color: #4c51bf; /* Indigo background */
+    color: #ffffff; /* White text */
+    border-radius: 4px; /* Slightly rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-weight: 600; /* Semi-bold text */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.work-link:hover {
+    background-color: #434190; /* Darker indigo on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* ------------------------ */
+/* Responsive Design        */
+/* ------------------------ */
+
+@media (max-width: 900px) {
+    .skill-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .skill-item.reverse {
+        flex-direction: column;
+    }
+
+    .skill-image img {
+        max-width: 200px; /* Reduce image size on smaller screens */
+    }
+}
+
+@media (max-width: 600px) {
+    #skills h2 {
+        font-size: 2em; /* Adjust heading size for smaller screens */
+    }
+
+    .skills-container {
+        gap: 40px; /* Reduce space between skill items */
+    }
+
+    .skill-item {
+        gap: 20px; /* Reduce space between text and image */
+    }
+
+    .skill-text h3 {
+        font-size: 1.5em; /* Adjust skill title size */
+    }
+
+    .skill-text p,
+    .skill-list {
+        font-size: 0.95em; /* Slightly smaller text for better fit */
+    }
+
+    .skill-image img {
+        max-width: 100%; /* Allow images to take full width */
+    }
+}
+
+#blog {
+    background-color: #f0f4f8; /* Light background to differentiate from other sections */
+    padding: 80px 20px; /* Top/Bottom and Left/Right padding */
+    font-family: 'Roboto', sans-serif; /* Consistent font */
+    text-align: center; /* Center text horizontally */
+}
+
+#blog h2 {
+    font-size: 2.5em; /* Large font size for prominence */
+    margin-bottom: 30px; /* Space below the heading */
+    color: #2d3748; /* Dark gray color for the heading */
+}
+
+.coming-soon {
+    font-size: 1.8em; /* Larger text for visibility */
+    color: #4a5568; /* Dark gray color for text */
+    font-weight: 500; /* Semi-bold text */
+}

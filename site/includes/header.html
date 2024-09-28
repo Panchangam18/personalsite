@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Component</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #E1DEDD;
+        }
+        .header {
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        .logo-container {
+            display: inline-block;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+        }
+        .logo {
+            font-size: 48px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        .vector-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 10px;
+        }
+        .bracket {
+            display: inline-block;
+            font-size: 100px;
+            line-height: 0.9;
+            font-weight: 300;
+        }
+        .vector-bars {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .vector-bar {
+            position: absolute;
+            background-color: #000;
+            width: 6px;
+            height: 50%;
+            top: 50px;
+        }
+        .vector-bar:nth-child(1), .vector-bar:nth-child(2) { left: 30px; }
+        .vector-bar:nth-child(3), .vector-bar:nth-child(4) { right: 30px; }
+        .vector-bar:nth-child(2) { left: 15px; }
+        .vector-bar:nth-child(3) { right: 15px; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="/" class="logo-container">
+            <div class="logo">
+                <span class="bracket">[</span>
+                <div class="vector-content">
+                    <span>M</span>
+                    <span>P</span>
+                </div>
+                <span class="bracket">]</span>
+                <div class="vector-bars">
+                    <div class="vector-bar"></div>
+                    <div class="vector-bar"></div>
+                    <div class="vector-bar"></div>
+                    <div class="vector-bar"></div>
+                </div>
+            </div>
+        </a>
+    </header>
+</body>
+</html>

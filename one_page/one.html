@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Madhavan Panchangam - Home</title>
+    <!-- Include Roboto font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="css/landing-styles.css">
+</head>
+<body>
+
+<!-- Canvas Element -->
+<canvas id="canvas"></canvas>
+
+<div class="container">
+    <!-- Navigation Component -->
+    <div class="scaling-wrapper" id="navigation">
+        <svg class="svg-container" width="400" height="400" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
+            <!-- Define circle paths -->
+            <defs>
+                <!-- Circle paths for each navigation item -->
+                <path id="circle1" d="M200,200 m-145,0 a145,145 0 1,1 290,0 a145,145 0 1,1 -290,0" />
+                <path id="circle2" d="M200,200 m-145,0 a145,145 0 1,1 290,0 a145,145 0 1,1 -290,0" transform="rotate(60,200,200)" />
+                <path id="circle3" d="M200,200 m-145,0 a145,145 0 1,1 290,0 a145,145 0 1,1 -290,0" transform="rotate(120,200,200)" />
+                <path id="circle4" d="M200,200 m-145,0 a145,145 0 1,1 290,0 a145,145 0 1,1 -290,0" transform="rotate(180,200,200)" />
+                <path id="circle5" d="M200,200 m-145,0 a145,145 0 1,1 290,0 a145,145 0 1,1 -290,0" transform="rotate(240,200,200)" />
+                <path id="circle6" d="M200,200 m-145,0 a145,145 0 1,1 290,0 a145,145 0 1,1 -290,0" transform="rotate(300,200,200)" />
+            </defs>
+
+            <!-- Text along paths -->
+            <a xlink:href="#folio">
+                <text font-size="18" text-anchor="middle" font-weight="bold">
+                    <textPath xlink:href="#circle1" startOffset="50%">FOLIO</textPath>
+                </text>
+            </a>
+            <a xlink:href="#work">
+                <text font-size="18" text-anchor="middle" font-weight="bold">
+                    <textPath xlink:href="#circle2" startOffset="50%">WORK</textPath>
+                </text>
+            </a>
+            <a xlink:href="#skills">
+                <text font-size="18" text-anchor="middle" font-weight="bold">
+                    <textPath xlink:href="#circle3" startOffset="50%">SKILLS</textPath>
+                </text>
+            </a>
+            <a xlink:href="#contact">
+                <text font-size="18" text-anchor="middle" font-weight="bold">
+                    <textPath xlink:href="#circle4" startOffset="50%">CONTACT</textPath>
+                </text>
+            </a>
+            <a xlink:href="#blog">
+                <text font-size="18" text-anchor="middle" font-weight="bold">
+                    <textPath xlink:href="#circle5" startOffset="50%">BLOG</textPath>
+                </text>
+            </a>
+            <a xlink:href="#study">
+                <text font-size="18" text-anchor="middle" font-weight="bold">
+                    <textPath xlink:href="#circle6" startOffset="50%">STUDY</textPath>
+                </text>
+            </a>
+        </svg>
+    </div>
+
+    <!-- Logo Component -->
+    <div class="logo-container">
+        <div class="logo" id="logo">
+            <span class="bracket">[</span>
+            <div class="vector-content">
+                <span>M</span>
+                <span>P</span>
+            </div>
+            <span class="bracket">]</span>
+        </div>
+        <div class="circle" id="circle"></div>
+        <!-- Magnitude Bars -->
+        <div class="vector-bars">
+            <div class="vector-bar"></div>
+            <div class="vector-bar"></div>
+            <div class="vector-bar"></div>
+            <div class="vector-bar"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Additional Sections -->
+<section id="study">
+    <h2>Study</h2>
+    <div class="timeline">
+        <!-- Timeline Item 1 -->
+        <div class="timeline-item">
+            <div class="timeline-icon"></div>
+            <div class="timeline-content">
+                <h3>Bachelor of Science in Computer Science</h3>
+                <span class="institution">XYZ University</span>
+                <span class="date">September 2016 - June 2020</span>
+                <p>
+                    Graduated with honors, specializing in software development and data structures. Participated in various projects including a capstone project on machine learning algorithms.
+                </p>
+            </div>
+        </div>
+
+        <!-- Timeline Item 2 -->
+        <div class="timeline-item">
+            <div class="timeline-icon"></div>
+            <div class="timeline-content">
+                <h3>High School Diploma</h3>
+                <span class="institution">ABC High School</span>
+                <span class="date">September 2012 - June 2016</span>
+                <p>
+                    Focused on science and mathematics. Active member of the computer club and participated in state-level science fairs.
+                </p>
+            </div>
+        </div>
+
+        <!-- Add more timeline items as needed -->
+    </div>
+</section>
+
+<!-- Work Section -->
+<section id="work">
+    <h2>Work Experience</h2>
+    <div class="timeline">
+        <!-- Timeline Item 1 -->
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <!-- Work Icon (e.g., Briefcase) -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" viewBox="0 0 24 24" width="30px" height="30px">
+                    <path d="M20 6h-3V4a2 2 0 00-2-2H9a2 2 0 00-2 2v2H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V8a2 2 0 00-2-2zm-6 0H10V4h4v2z"/>
+                </svg>
+            </div>
+            <div class="timeline-content">
+                <h3>Senior Software Engineer at InnovateX</h3>
+                <span class="work-duration">January 2021 - Present</span>
+                <p>
+                    Leading a team of developers in building scalable web applications using React and Node.js. Spearheaded the migration to microservices architecture, enhancing system reliability by 30%.
+                </p>
+                <ul class="work-responsibilities">
+                    <li>Architected and implemented RESTful APIs.</li>
+                    <li>Mentored junior developers and conducted code reviews.</li>
+                    <li>Collaborated with cross-functional teams to define project requirements.</li>
+                </ul>
+                <a href="https://www.innovatex.com/careers" class="work-link" target="_blank" rel="noopener noreferrer">Learn More</a>
+            </div>
+        </div>
+        
+        <!-- Timeline Item 2 -->
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <!-- Work Icon (e.g., Briefcase) -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" viewBox="0 0 24 24" width="30px" height="30px">
+                    <path d="M20 6h-3V4a2 2 0 00-2-2H9a2 2 0 00-2 2v2H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V8a2 2 0 00-2-2zm-6 0H10V4h4v2z"/>
+                </svg>
+            </div>
+            <div class="timeline-content">
+                <h3>Frontend Developer at WebSolutions</h3>
+                <span class="work-duration">June 2018 - December 2020</span>
+                <p>
+                    Developed responsive user interfaces using HTML5, CSS3, and JavaScript frameworks. Collaborated with designers to translate UI/UX designs into functional web applications, improving user engagement by 25%.
+                </p>
+                <ul class="work-responsibilities">
+                    <li>Implemented interactive features and animations.</li>
+                    <li>Optimized website performance for faster load times.</li>
+                    <li>Ensured cross-browser compatibility and responsiveness.</li>
+                </ul>
+                <a href="https://www.websolutions.com/projects" class="work-link" target="_blank" rel="noopener noreferrer">View Projects</a>
+            </div>
+        </div>
+        
+        <!-- Timeline Item 3 -->
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <!-- Work Icon (e.g., Briefcase) -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" viewBox="0 0 24 24" width="30px" height="30px">
+                    <path d="M20 6h-3V4a2 2 0 00-2-2H9a2 2 0 00-2 2v2H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V8a2 2 0 00-2-2zm-6 0H10V4h4v2z"/>
+                </svg>
+            </div>
+            <div class="timeline-content">
+                <h3>Software Engineer at TechCorp</h3>
+                <span class="work-duration">July 2015 - May 2018</span>
+                <p>
+                    Contributed to the development of enterprise-level applications using Java and Spring Framework. Played a key role in the successful deployment of three major projects, enhancing client satisfaction by 40%.
+                </p>
+                <ul class="work-responsibilities">
+                    <li>Designed and implemented backend services.</li>
+                    <li>Collaborated with QA teams to ensure software quality.</li>
+                    <li>Participated in agile development processes and sprint planning.</li>
+                </ul>
+                <a href="https://www.techcorp.com/about-us" class="work-link" target="_blank" rel="noopener noreferrer">About TechCorp</a>
+            </div>
+        </div>
+        
+        <!-- Add more timeline items as needed following the same structure -->
+    </div>
+</section>
+
+<section id="skills">
+    <h2>My Skills</h2>
+    <div class="skills-container">
+        <!-- Skill Item 1 -->
+        <div class="skill-item">
+            <div class="skill-text">
+                <h3>Frontend Development</h3>
+                <p>
+                    Proficient in building responsive and interactive user interfaces using HTML5, CSS3, and JavaScript. Experienced with frameworks like React and Vue.js to create dynamic web applications.
+                </p>
+                <ul class="skill-list">
+                    <li>HTML5 &amp; CSS3</li>
+                    <li>JavaScript &amp; ES6+</li>
+                    <li>React.js &amp; Redux</li>
+                </ul>
+            </div>
+            <div class="skill-image">
+                <img src="images/frontend-development.png" alt="Frontend Development Illustration" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- Skill Item 2 -->
+        <div class="skill-item reverse">
+            <div class="skill-text">
+                <h3>Backend Development</h3>
+                <p>
+                    Skilled in developing robust backend systems using Node.js, Express.js, and databases like MongoDB and PostgreSQL. Adept at designing RESTful APIs and integrating third-party services.
+                </p>
+                <ul class="skill-list">
+                    <li>Node.js &amp; Express.js</li>
+                    <li>MongoDB &amp; PostgreSQL</li>
+                    <li>RESTful API Design</li>
+                </ul>
+            </div>
+            <div class="skill-image">
+                <img src="images/backend-development.png" alt="Backend Development Illustration" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- Skill Item 3 -->
+        <div class="skill-item">
+            <div class="skill-text">
+                <h3>UI/UX Design</h3>
+                <p>
+                    Experienced in creating intuitive and user-centric designs using tools like Adobe XD and Figma. Focused on enhancing user experience through thoughtful interface design and usability testing.
+                </p>
+                <ul class="skill-list">
+                    <li>Adobe XD &amp; Figma</li>
+                    <li>Wireframing &amp; Prototyping</li>
+                    <li>Usability Testing</li>
+                </ul>
+            </div>
+            <div class="skill-image">
+                <img src="images/ui-ux-design.png" alt="UI/UX Design Illustration" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="folio">
+    <div class="portfolio-container">
+        <!-- Project Card 1 -->
+        <div class="portfolio-card">
+            <img src="images/ramvisor.png" alt="Ramvisor Project Screenshot" class="portfolio-image">
+            <div class="portfolio-content">
+                <h3>Ramvisor</h3>
+                <p>AI-powered assistant for UNC course registration, integrating full-stack technologies to provide comprehensive answers about course catalogs and registration processes.</p>
+                <a href="https://github.com/RPD123-byte/Ramvisor_Code" class="portfolio-link" target="_blank" rel="noopener noreferrer">View Project</a>
+            </div>
+        </div>
+        
+        <!-- Project Card 2 -->
+        <div class="portfolio-card">
+            <img src="images/aif.png" alt="Research with Human-Level Intelligence Project Screenshot" class="portfolio-image">
+            <div class="portfolio-content">
+                <h3>Research with Human-Level Intelligence</h3>
+                <p>Implements an active inference framework for optimizing research processes across industries, demonstrating continuous learning and adaptation in complex environments.</p>
+                <a href="https://github.com/RPD123-byte/Research_with_Human_Level_Intelligence" class="portfolio-link" target="_blank" rel="noopener noreferrer">View Project</a>
+            </div>
+        </div>
+        
+        <!-- Project Card 3 -->
+        <div class="portfolio-card">
+            <img src="images/lexal.jpg" alt="Full Stack Website Project Screenshot" class="portfolio-image">
+            <div class="portfolio-content">
+                <h3>Full Stack Website</h3>
+                <p>Developed a comprehensive website for Lexal AI, featuring a full frontend and backend architecture. Implemented secure authentication using JWT and Google Auth, integrated a PostgreSQL database, and Stripe for payments. The site includes a multifunctional dashboard and is supported by a robust CI/CD pipeline.</p>
+                <a href="/projects/lexal-ai" class="portfolio-link">View Details</a>
+            </div>
+        </div>
+        
+        <!-- Add additional project cards below following the same structure -->
+        
+        <!-- Example of an Internal Link Project -->
+        <div class="portfolio-card">
+            <img src="images/palm_berry.png" alt="Palm Berries Auto-Purchasing Bot Project Screenshot" class="portfolio-image">
+            <div class="portfolio-content">
+                <h3>Palm Berries Auto-Purchasing Bot</h3>
+                <p>Advanced automation tool for inventory purchasing, integrating with Google Sheets and using Selenium for web scraping and autonomous purchasing, featuring comprehensive error handling and secure authentication.</p>
+                <a href="/projects/palm-berries" class="portfolio-link">View Details</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="blog">
+    <h2>Blog</h2>
+    <div class="coming-soon">
+        <p>Coming Soon</p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Reach out</h2>
+    <div class="contact-container">
+        <!-- Contact Method 1: Phone -->
+        <div class="contact-method">
+            <div class="contact-icon">
+                <!-- Phone SVG Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#4c51bf" width="40px" height="40px">
+                    <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 011 1v3.5a1 1 0 01-1 1C10.74 21 3 13.26 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.21 1.11l-2.2 2.2z"/>
+                </svg>
+            </div>
+            <div class="contact-info">
+                <h3>Phone</h3>
+                <a href="tel:+17044930264">704-493-0264</a>
+            </div>
+        </div>
+        
+        <!-- Contact Method 2: Email -->
+        <div class="contact-method">
+            <div class="contact-icon">
+                <!-- Email SVG Icon -->
+                <svg width="40px" height="40px" viewBox="0 -2.5 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+                    <title>email [#1572]</title>
+                    <desc>Created with Sketch.</desc>
+                    <defs>
+                
+                </defs>
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Dribbble-Light-Preview" transform="translate(-340.000000, -922.000000)" fill="#000000">
+                            <g id="icons" transform="translate(56.000000, 160.000000)">
+                                <path d="M294,774.474 L284,765.649 L284,777 L304,777 L304,765.649 L294,774.474 Z M294.001,771.812 L284,762.981 L284,762 L304,762 L304,762.981 L294.001,771.812 Z" id="email-[#1572]">
+                
+                </path>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+            <div class="contact-info">
+                <h3>Email</h3>
+                <a href="mailto:mpanchangam.18@gmail.com">mpanchangam.18@gmail.com</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Link to external JavaScript -->
+<script src="js/landing-scripts.js"></script>
+</body>
+</html>

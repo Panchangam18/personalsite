@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Madhavan Panchangam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #E1DEDD;
+            color: #333;
+        }
+        .header {
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        .logo-container {
+            display: inline-block;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+            z-index: 2;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        .vector-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 5px;
+            color: #000;
+        }
+        .bracket {
+            display: inline-block;
+            font-size: 50px;
+            line-height: 0.9;
+            font-weight: 300;
+            color: #000;
+        }
+        .vector-bars {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 222.5%;
+            height: 100%;
+            pointer-events: none;
+            margin-top: -46.5px;
+        }
+        .vector-bar {
+            position: absolute;
+            background-color: #000;
+            width: 3px;
+            height: 87.5%;
+            top: 50px;
+        }
+        .vector-bar:nth-child(1), .vector-bar:nth-child(2) { left: 30px; }
+        .vector-bar:nth-child(3), .vector-bar:nth-child(4) { right: 30px; }
+        .vector-bar:nth-child(2) { left: 22.5px; }
+        .vector-bar:nth-child(3) { right: 22.5px; }
+        .arrow-container {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            z-index: 1;
+        }
+        .arrow-left, .arrow-right {
+            position: absolute;
+            height: 100%;
+            background-color: #000;
+        }
+        .arrow-left {
+            left: 0;
+            right: calc(50% + 45px);
+        }
+        .arrow-right {
+            left: calc(50% + 45px);
+            right: 10px;
+        }
+        .arrow-tip {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid #000;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+        main {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .contact-method {
+            display: flex;
+            align-items: center;
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: calc(38%);
+            text-decoration: none;
+            color: inherit;
+        }
+        .contact-method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .contact-icon {
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        .contact-info h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.2em;
+        }
+        .contact-info p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+        @media (max-width: 1200px) {
+            .contact-method {
+                width: calc(45%);
+            }
+        }
+        @media (max-width: 900px) {
+            .contact-method {
+                width: calc(50% - 10px);
+            }
+        }
+        @media (max-width: 600px) {
+            .contact-method {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="arrow-container">
+            <div class="arrow-left"></div>
+            <div class="arrow-right"></div>
+            <div class="arrow-tip"></div>
+        </div>
+        <a href="../index.html" class="logo-container" id="logo-link">
+            <div class="logo">
+                <span class="bracket">[</span>
+                <div class="vector-content">
+                    <span>M</span>
+                    <span>P</span>
+                </div>
+                <span class="bracket">]</span>
+                <div class="vector-bars">
+                    <div class="vector-bar"></div>
+                    <div class="vector-bar"></div>
+                    <div class="vector-bar"></div>
+                    <div class="vector-bar"></div>
+                </div>
+            </div>
+        </a>
+    </header>
+    
+    <main>
+        <h1>Contact Me</h1>
+        <p>Reach out to me about AI, Active Inference, Math, Boxing, MMA or basically anything that's cool.</p>
+        <div class="contact-container">
+            <!-- Contact Method 1: Phone -->
+            <a href="tel:+17044930264" class="contact-method">
+                <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000" width="40px" height="40px">
+                        <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 011 1v3.5a1 1 0 01-1 1C10.74 21 3 13.26 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.21 1.11l-2.2 2.2z"/>
+                    </svg>
+                </div>
+                <div class="contact-info">
+                    <h3>Phone</h3>
+                    <p>704-493-0264</p>
+                </div>
+            </a>
+        
+            <!-- Contact Method 2: Email -->
+            <a href="mailto:mpanchangam.18@gmail.com" class="contact-method">
+                <div class="contact-icon">
+                    <svg width="40px" height="40px" viewBox="0 0 24 24" fill="#000000" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 13.065L0 6V18H24V6L12 13.065ZM12 11.535L21.6 5H2.4L12 11.535Z"/>
+                    </svg>
+                </div>
+                <div class="contact-info">
+                    <h3>Email</h3>
+                    <p>mpanchangam.18@gmail.com</p>
+                </div>
+            </a>
+        
+            <!-- Contact Method 3: GitHub -->
+            <a href="https://github.com/Panchangam18" target="_blank" rel="noopener noreferrer" class="contact-method">
+                <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </div>
+                <div class="contact-info">
+                    <h3>GitHub</h3>
+                    <p>Panchangam18</p>
+                </div>
+            </a>
+        
+            <!-- Contact Method 4: LinkedIn -->
+            <a href="https://www.linkedin.com/in/madhavan-panchangam-79415125b/" target="_blank" rel="noopener noreferrer" class="contact-method">
+                <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </div>
+                <div class="contact-info">
+                    <h3>LinkedIn</h3>
+                    <p>Madhavan Panchangam</p>
+                </div>
+            </a>
+        
+            <!-- Contact Method 5: Instagram -->
+            <a href="https://www.instagram.com/madpanch/" target="_blank" rel="noopener noreferrer" class="contact-method">
+                <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="40" height="40" viewBox="0 0 256 256">
+                        <defs>
+                        </defs>
+                        <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
+                            <path d="M 45 31.77 c -7.444 0 -13.5 6.056 -13.5 13.5 s 6.056 13.5 13.5 13.5 s 13.5 -6.056 13.5 -13.5 S 52.444 31.77 45 31.77 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                            <path d="M 63.718 0 H 26.282 C 11.767 0 0 11.767 0 26.282 v 37.437 C 0 78.233 11.767 90 26.282 90 h 37.437 C 78.233 90 90 78.233 90 63.718 V 26.282 C 90 11.767 78.233 0 63.718 0 z M 45 68.679 c -12.908 0 -23.409 -10.501 -23.409 -23.408 c 0 -12.908 10.501 -23.409 23.409 -23.409 c 12.907 0 23.408 10.501 23.408 23.409 C 68.408 58.178 57.907 68.679 45 68.679 z M 68.922 21.922 c -2.761 0 -5 -2.239 -5 -5 s 2.239 -5 5 -5 s 5 2.239 5 5 S 71.683 21.922 68.922 21.922 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                        </g>
+                    </svg>
+                </div>
+                <div class="contact-info">
+                    <h3>Instagram</h3>
+                    <p>@madpanch</p>
+                </div>
+            </a>
+
+            <!-- Contact Method 6: Resume -->
+            <a href="https://drive.google.com/file/d/15Z1-wLkrHHWt6yRZicZvXH5fbHvLXOm7/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="contact-method">
+                <div class="contact-icon">
+                  <svg fill="#000000" width="40px" height="40px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+                    <g fill-rule="evenodd">
+                        <path d="M1185.471 0v564.706h564.705V1920H169V0h1016.471Zm-225.77 1355.294H507.823v113.054h451.878v-113.054Zm338.711-225.881H507.823v112.94h790.589v-112.94Zm-112.941-225.884H507.823v112.941h677.648V903.529Zm225.882-225.882h-903.53v112.941h903.53V677.647ZM959.701 451.878H507.823v112.941h451.878V451.878Z"/>
+                        <path d="M1667.673 345.623c30.38 30.268 51.84 66.635 65.619 106.164h-434.937V16.851c39.53 13.779 75.897 35.35 106.278 65.619l263.04 263.153Z"/>
+                    </g>
+                </svg>
+                </div>
+                <div class="contact-info">
+                    <h3>Resume</h3>
+                    <p>Link to file</p>
+                </div>
+            </a>
+        </div>
+    </main>
+</body>
+</html>

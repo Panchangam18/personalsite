@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - Madhavan Panchangam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #E1DEDD;
+            color: #000;
+        }
+        .header {
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        .logo-container {
+            display: inline-block;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+            z-index: 2;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        .vector-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 5px;
+            color: #000;
+        }
+        .bracket {
+            display: inline-block;
+            font-size: 50px;
+            line-height: 0.9;
+            font-weight: 300;
+            color: #000;
+        }
+        .vector-bars {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 222.5%;
+            height: 100%;
+            pointer-events: none;
+            margin-top: -46.5px;
+        }
+        .vector-bar {
+            position: absolute;
+            background-color: #000;
+            width: 3px;
+            height: 87.5%;
+            top: 50px;
+        }
+        .vector-bar:nth-child(1), .vector-bar:nth-child(2) { left: 30px; }
+        .vector-bar:nth-child(3), .vector-bar:nth-child(4) { right: 30px; }
+        .vector-bar:nth-child(2) { left: 22.5px; }
+        .vector-bar:nth-child(3) { right: 22.5px; }
+        .arrow-container {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            z-index: 1;
+        }
+        .arrow-left, .arrow-right {
+            position: absolute;
+            height: 100%;
+            background-color: #000;
+        }
+        .arrow-left {
+            left: 0;
+            right: calc(50% + 45px);
+        }
+        .arrow-right {
+            left: calc(50% + 45px);
+            right: 10px;
+        }
+        .arrow-tip {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid #000;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+        main {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #000;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .resume-link {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .resume-link a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #E1DEDD;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .resume-link a:hover {
+            background-color: #333;
+        }
+
+        .section-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .section-card h2 {
+            color: #000;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .education-info {
+            display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 20px;
+        }
+
+        .education-logo {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+        }
+
+        .education-details h3 {
+            margin-top: 0;
+            font-size: 1.4em;
+        }
+
+        .book-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .book-item {
+            text-align: center;
+        }
+
+        .book-cover {
+            width: 120px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-title {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 20px;
+        justify-items: center;
+        align-items: center;
+    }
+    .skill-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .skill-logo {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 5px;
+    }
+        @media screen and (max-width: 768px) {
+            .education-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .book-list {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="arrow-container">
+            <div class="arrow-left"></div>
+            <div class="arrow-right"></div>
+            <div class="arrow-tip"></div>
+        </div>
+        <a href="../index.html" class="logo-container" id="logo-link">
+            <div class="logo">
+                <span class="bracket">[</span>
+                <div class="vector-content">
+                    <span>M</span>
+                    <span>P</span>
+                </div>
+                <span class="bracket">]</span>
+                <div class="vector-bars">
+                    <div class="vector-bar"></div>
+                    <div class="vector-bar"></div>
+                    <div class="vector-bar"></div>
+                    <div class="vector-bar"></div>
+                </div>
+            </div>
+        </a>
+    </header>
+    
+    <main>
+        <h1>Study</h1>
+        <div class="resume-link">
+            <a href="https://drive.google.com/file/d/15Z1-wLkrHHWt6yRZicZvXH5fbHvLXOm7/view?usp=sharing" target="_blank" rel="noopener noreferrer">View Full Resume</a>
+        </div>
+
+        <div class="section-card">
+            <h2>Education</h2>
+            <div class="education-info">
+                <img src="images/unclogo.png" alt="UNC-Chapel Hill Logo" class="education-logo">
+                <div class="education-details">
+                    <h3>University of North Carolina at Chapel Hill</h3>
+                    <p><strong>Expected Graduation:</strong> May 2026</p>
+                    <p><strong>Major:</strong> Applied Mathematics and Computer Science</p>
+                    <p><strong>Minor:</strong> Data Science</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2>Favorite Books</h2>
+            <div class="book-list">
+                <!-- Add your favorite books here -->
+                <div class="book-item">
+                    <img src="images/dune.png" alt="Book 1 Cover" class="book-cover">
+                    <!-- <p class="book-title">Dune</p> -->
+                </div>
+                <div class="book-item">
+                    <img src="images/activeinference.png" alt="Book 2 Cover" class="book-cover">
+                    <!-- <p class="book-title">Active Inference</p> -->
+                </div>
+                <div class="book-item">
+                    <img src="images/48lawsofpower.jpeg" alt="Book 3 Cover" class="book-cover">
+                    <!-- <p class="book-title">48 Laws of Power</p> -->
+                </div>
+                <div class="book-item">
+                    <img src="images/thebookof5rings.png" alt="Book 4 Cover" class="book-cover">
+                    <!-- <p class="book-title">The Book of Five Rings</p> -->
+                </div>
+                <div class="book-item">
+                    <img src="images/neversplitthedifference.png" alt="Book 5 Cover" class="book-cover">
+                    <!-- <p class="book-title">Never Split the Difference</p> -->
+                </div>
+                <!-- Add more books as needed -->
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoLink = document.getElementById('logo-link');
+            logoLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                window.location.href = this.getAttribute('href');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Madhavan Panchangam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #E1DEDD;
+            color: #000;
+        }
+        .header {
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        .logo-container {
+            display: inline-block;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+            z-index: 2;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        .vector-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 5px;
+            color: #000;
+        }
+        .bracket {
+            display: inline-block;
+            font-size: 50px;
+            line-height: 0.9;
+            font-weight: 300;
+            color: #000;
+        }
+        .vector-bars {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 222.5%;
+            height: 100%;
+            pointer-events: none;
+            margin-top: -46.5px;
+        }
+        .vector-bar {
+            position: absolute;
+            background-color: #000;
+            width: 3px;
+            height: 87.5%;
+            top: 50px;
+        }
+        .vector-bar:nth-child(1), .vector-bar:nth-child(2) { left: 30px; }
+        .vector-bar:nth-child(3), .vector-bar:nth-child(4) { right: 30px; }
+        .vector-bar:nth-child(2) { left: 22.5px; }
+        .vector-bar:nth-child(3) { right: 22.5px; }
+        .arrow-container {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            z-index: 1;
+        }
+        .arrow-left, .arrow-right {
+            position: absolute;
+            height: 100%;
+            background-color: #000;
+        }
+        .arrow-left {
+            left: 0;
+            right: calc(50% + 45px);
+        }
+        .arrow-right {
+            left: calc(50% + 45px);
+            right: 10px;
+        }
+        .arrow-tip {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid #000;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+        main {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #000;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .portfolio-container {
+            display: grid;
+            margin-top: 80px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .portfolio-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+        }
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .portfolio-content {
+            padding: 20px;
+        }
+        .portfolio-content h3 {
+            margin-top: 0;
+            color: #000;
+        }
+        .portfolio-content p {
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        .portfolio-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .portfolio-link:hover {
+            background-color: #333;
+        }
+        .resume-link {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .resume-link a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #E1DEDD;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .resume-link a:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="arrow-container">
+            <div class="arrow-left"></div>
+            <div class="arrow-right"></div>
+            <div class="arrow-tip"></div>
+        </div>
+        <a href="../index.html" class="logo-container" id="logo-link">
+            <div class="logo">
+                <span class="bracket">[</span>
+                <div class="vector-content">
+                    <span>M</span>
+                    <span>P</span>
+                </div>
+                <span class="bracket">]</span>
+                <div class="vector-bars">
+                    <div class="vector-bar"></div>
+                    <div class="vector-bar"></div>
+                    <div class="vector-bar"></div>
+                    <div class="vector-bar"></div>
+                </div>
+            </div>
+        </a>
+    </header>
+    
+    <main>
+        <h1>Portfolio</h1>
+        <div class="resume-link">
+            <a href="https://drive.google.com/file/d/15Z1-wLkrHHWt6yRZicZvXH5fbHvLXOm7/view?usp=sharing" target="_blank" rel="noopener noreferrer">View Full Resume</a>
+        </div>
+        <div class="portfolio-container">
+            <div class="portfolio-card">
+                <img src="images/projecttrace.png" alt="Palm Berries Auto-Purchasing Bot Project Screenshot" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Project Trace Chrome Extension</h3>
+                    <p>An MVP Chrome extension for a local start up that allows you to track the sustainability of your purchases with "Trace Points." The Chrome extension was built to demo the project's vision and raise money.</em></p>
+                </div>
+            </div>
+            <!-- Project Card 2 -->
+            <div class="portfolio-card">
+                <img src="images/combative.png" alt="Research with Human-Level Intelligence Project Screenshot" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Combative</h3>
+                    <p>An OpenCV, MediaPipe and the OpenAI API based boxing coach that gives you advice on what to do and how to improve technique. Trained a model with TensorFlow on orthodox vs. southpaw stance.</p>
+                    <a href="https://github.com/Panchangam18/combative.ai.code" class="portfolio-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                </div>
+            </div>
+            <!-- Project Card 3 -->
+            <div class="portfolio-card">
+                <img src="images/lexal.png" alt="Full Stack Website Project Screenshot" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Full Stack Website</h3>
+                    <p>A comprehensive website for Lexal AI, featuring a full frontend and backend architecture. Utilizes secure authentication with JWT and Google Auth, a PostgreSQL database, and Stripe for payments. The site includes a multifunctional dashboard and is supported by a robust CI/CD pipeline.</p>
+            
+                </div>
+            </div>
+            <!-- Project Card 4 -->
+            <div class="portfolio-card">
+                <img src="images/perrybackend.png" alt="Palm Berries Auto-Purchasing Bot Project Screenshot" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Perry (Backend)</h3>
+                    <p>An agentic framework (LangGraph) built to aggregate open source data available on the internet given a person’s name and a couple key words about them (OSINT people research). Working to expand this to be a full on AI detective, so in the process of developing a capable model. (Hosted in Django)</p>
+                    <a href="https://github.com/Panchangam18/periscope_agent_graph" class="portfolio-link">View Details</a>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="images/perryfrontend.png" alt="Palm Berries Auto-Purchasing Bot Project Screenshot" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Perry (Frontend)</h3>
+                    <p>The front end for the Perry agentic framework. The Chrome extension sends a request to the backend hosting the LangGraph workflow and displays the results. This was built to demo the vision for Perry and show the depth of information it can provide even as an MVP.</p>
+                    <a href="https://github.com/Panchangam18/periscope-chrome-extension" class="portfolio-link">View Details</a>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="images/syntheologo.png" alt="Palm Berries Auto-Purchasing Bot Project Screenshot" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Syntheo</h3>
+                    <p>An AI-powered platform for music video creation. Built using React, Hugging Face Spaces, Suno API, and a cascaded diffusion model (12VGen-XL), Syntheo turns a prompt into a unique music video.</p>
+                    <a href="https://github.com/Panchangam18/syntheomain" class="portfolio-link">View Details</a>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="images/delegantbackend.png" alt="Palm Berries Auto-Purchasing Bot Project Screenshot" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Delegant (Backend)</h3>
+                    <p>An agentic framework (LangGraph) that helps small to medium sized businesses to manage their teams calendar with AI. Has the ability to add, delete, and edit events. Uses an NLP model (spacy) to choose the best team member to work on a given project. (Hosted in Django)</p>
+                    <a href="https://github.com/Panchangam18/delegant_agentic_workflow" class="portfolio-link">View Details</a>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="images/delegantfrontend.png" alt="Palm Berries Auto-Purchasing Bot Project Screenshot" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Delegant (Frontend)</h3>
+                    <p>A robust React/Node.js website for Delegant. Once the admin user logs in, Delegant displays their team's full calendar so the user can add, edit, and delete events. The website includes an area for the user to send a natural language prompt to the Delegant agent for easy calendar management.</p>
+                    <a href="https://github.com/Panchangam18/DelegantSite" class="portfolio-link">View Details</a>
+                </div>
+            </div>
+            
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoLink = document.getElementById('logo-link');
+            logoLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                window.location.href = this.getAttribute('href');
+            });
+        });
+    </script>
+</body>
+</html>

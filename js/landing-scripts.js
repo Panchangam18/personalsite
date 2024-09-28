@@ -12,14 +12,20 @@ let isExpanded = false;
 let typingInterval;
 
 function updateCircleSize(scaleFactor = 1) {
-    const baseSize = 500; // Base size of the circle
+    const baseSize = 500;
     const newSize = baseSize * scaleFactor;
     circle.style.width = `${newSize}px`;
     circle.style.height = `${newSize}px`;
 
-    // Update navigation scale
-    const navScale = 0.95 * scaleFactor; // Adjusted scale factor for navigation
+    const navScale = 0.95 * scaleFactor;
     navigation.style.transform = `translate(-50%, -50%) scale(${navScale})`;
+
+    const texts = navigation.querySelectorAll('text');
+    texts.forEach((text) => {
+        const baseFontSize = 18;
+        const newFontSize = baseFontSize / navScale;
+        text.setAttribute('font-size', newFontSize);
+    });
 }
 
 function typeText(textTop, textBottom, indexTop = 0, indexBottom = 0) {
@@ -53,14 +59,14 @@ function resetText() {
     brackets.forEach(bracket => {
         bracket.style.opacity = '1';
     });
-    vectorBars.style.opacity = '1'; // Reset magnitude bars visibility
+    vectorBars.style.opacity = '1';
     updateCircleSize(1);
 }
 
 logoContainer.addEventListener('mouseenter', () => {
     if (!isExpanded) {
         isExpanded = true;
-        vectorBars.style.opacity = '0'; // Fade out magnitude bars immediately
+        vectorBars.style.opacity = '0';
         typeText(fullNameTop, fullNameBottom);
     }
 });
@@ -70,7 +76,6 @@ logoContainer.addEventListener('mouseleave', () => {
     resetText();
 });
 
-// Initial circle size
 updateCircleSize(1);
 
 // Arrow JS Effect Integration
@@ -99,29 +104,23 @@ function updateCircleParameters() {
 
 class Arrow {
     constructor(x, y, vx, vy) {
-        this.positions = []; // Store positions for the tail
-        this.maxLength = Math.floor(Math.random() * (200 - 50 + 1)) + 50;
-        this.x = x; // Head position
+        this.positions = [];
+        this.maxLength = Math.floor(Math.random() * (300 - 50 + 1)) + 50;
+        this.x = x;
         this.y = y;
-        this.vx = vx; // Velocity components
+        this.vx = vx;
         this.vy = vy;
-        this.width = 5; // Arrowhead size
-        this.color = 'black'; // Arrow color
+        this.width = 5;
+        this.color = 'black';
     }
 
     update() {
-        // Update head position
         this.x += this.vx;
         this.y += this.vy;
-
-        // Add current position to positions array
         this.positions.push({ x: this.x, y: this.y });
-
-        // Limit the length of positions array
         if (this.positions.length > this.maxLength) {
             this.positions.shift();
         }
-
         this.checkCollisionWithCircle();
     }
 
@@ -136,14 +135,10 @@ class Arrow {
             const dot = this.vx * nx + this.vy * ny;
 
             if (dot > 0) {
-                // Arrow is moving further inside the circle, remove it
                 this.remove = true;
             } else {
-                // Bounce the arrow off the circle
                 this.vx -= 2 * dot * nx;
                 this.vy -= 2 * dot * ny;
-
-                // Adjust position to be just outside the circle
                 const overlap = circleRadius - distance;
                 this.x += nx * overlap;
                 this.y += ny * overlap;
@@ -154,13 +149,10 @@ class Arrow {
     draw() {
         ctx.strokeStyle = this.color;
         ctx.lineWidth = 2;
-
-        // Set lineCap and lineJoin to make edges pointy
         ctx.lineCap = 'butt';
         ctx.lineJoin = 'miter';
-        ctx.miterLimit = 10; // Increase for sharper joins if needed
+        ctx.miterLimit = 10;
 
-        // Draw the tail
         if (this.positions.length > 1) {
             ctx.beginPath();
             const tailStart = this.positions[0];
@@ -172,17 +164,16 @@ class Arrow {
             ctx.stroke();
         }
 
-        // Draw the arrowhead at the head position
         ctx.save();
         ctx.translate(this.x, this.y);
         const angle = Math.atan2(this.vy, this.vx);
         ctx.rotate(angle);
 
         ctx.beginPath();
-        ctx.moveTo(0, 0); // Tip of the arrowhead
-        ctx.lineTo(-this.width * 2, -this.width); // Left corner
-        ctx.lineTo(-this.width * 2, this.width);  // Right corner
-        ctx.closePath(); // Close the path to form a triangle
+        ctx.moveTo(0, 0);
+        ctx.lineTo(-this.width * 2, -this.width);
+        ctx.lineTo(-this.width * 2, this.width);
+        ctx.closePath();
         ctx.fillStyle = this.color;
         ctx.fill();
 
@@ -234,8 +225,7 @@ function animate() {
         const arrow = arrows[i];
         arrow.update();
 
-        // Check if the arrow should be removed
-        const tailEnd = arrow.positions[0]; // Oldest position (tail end)
+        const tailEnd = arrow.positions[0];
         const offScreen =
             tailEnd.x < -50 || tailEnd.x > canvas.width + 50 ||
             tailEnd.y < -50 || tailEnd.y > canvas.height + 50;
@@ -250,5 +240,49 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
-setInterval(generateRandomArrow, 2000);
+setInterval(generateRandomArrow, 6000);
 animate();
+
+function handleNavigation(event) {
+    const link = event.target.closest('a');
+    if (link) {
+        event.preventDefault();
+        const href = link.getAttribute('href');
+        
+        // Check if it's an external link (doesn't start with #)
+        if (!href.startsWith('#')) {
+            // For external links, navigate to the new page
+            window.location.href = href;
+        } else {
+            // For internal links (if any), you can add smooth scrolling here
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }
+}
+
+function setupNavigationHover() {
+    const svgContainer = document.querySelector('.svg-container');
+    const navLinks = svgContainer.querySelectorAll('a');
+
+    navLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            svgContainer.style.animationPlayState = 'paused';
+        });
+
+        link.addEventListener('mouseleave', () => {
+            svgContainer.style.animationPlayState = 'running';
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const svg = document.querySelector('svg');
+    if (svg) {
+        svg.addEventListener('click', handleNavigation);
+    }
+    setupNavigationHover();
+});

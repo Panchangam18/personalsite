@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Madhavan Panchangam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #E1DEDD;
+            color: #333;
+        }
+        .header {
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        .logo-container {
+            display: inline-block;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+            z-index: 2;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        .vector-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 5px;
+            color: #000;
+        }
+        .bracket {
+            display: inline-block;
+            font-size: 50px;
+            line-height: 0.9;
+            font-weight: 300;
+            color: #000;
+        }
+        .vector-bars {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 222.5%;
+            height: 100%;
+            pointer-events: none;
+            margin-top: -46.5px;
+        }
+        .vector-bar {
+            position: absolute;
+            background-color: #000;
+            width: 3px;
+            height: 87.5%;
+            top: 50px;
+        }
+        .vector-bar:nth-child(1), .vector-bar:nth-child(2) { left: 30px; }
+        .vector-bar:nth-child(3), .vector-bar:nth-child(4) { right: 30px; }
+        .vector-bar:nth-child(2) { left: 22.5px; }
+        .vector-bar:nth-child(3) { right: 22.5px; }
+        .arrow-container {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            z-index: 1;
+        }
+        .arrow-left, .arrow-right {
+            position: absolute;
+            height: 100%;
+            background-color: #000;
+        }
+        .arrow-left {
+            left: 0;
+            right: calc(50% + 45px);
+        }
+        .arrow-right {
+            left: calc(50% + 45px);
+            right: 10px;
+        }
+        .arrow-tip {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid #000;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+        main {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .about-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+        }
+        .images-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .about-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .about-text {
+            flex: 1;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+            }
+            .images-container {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="arrow-container">
+            <div class="arrow-left"></div>
+            <div class="arrow-right"></div>
+            <div class="arrow-tip"></div>
+        </div>
+        <a href="../index.html" class="logo-container" id="logo-link">
+            <div class="logo">
+                <span class="bracket">[</span>
+                <div class="vector-content">
+                    <span>M</span>
+                    <span>P</span>
+                </div>
+                <span class="bracket">]</span>
+                <div class="vector-bars">
+                    <div class="vector-bar"></div>
+                    <div class="vector-bar"></div>
+                    <div class="vector-bar"></div>
+                    <div class="vector-bar"></div>
+                </div>
+            </div>
+        </a>
+    </header>
+    
+    <main>
+        <h1>About Me</h1>
+        <div class="about-container">
+            <div class="images-container">
+                <img src="images/41.JPEG" alt="Madhavan Panchangam" class="about-image">
+                <img src="images/84.PNG" alt="Madhavan Panchangam" class="about-image">
+            </div>
+            <div class="about-text">
+                <p>
+                    Hello! I'm Madhavan Panchangam, a passionate and driven individual with a keen interest in AI, Active Inference, Mathematics, and Boxing. Currently pursuing a degree in Applied Mathematics and Computer Science with a minor in Data Science at the University of North Carolina, Chapel Hill, I'm on a journey to bridge the gap between theoretical concepts and practical applications in the world of technology and science.
+                </p>
+                <p>
+                    As a co-founder of Lexal, I've had the opportunity to dive deep into the startup ecosystem, participating in Launch Chapel Hill, a top-five university start-up accelerator. This experience has not only honed my technical skills but also developed my entrepreneurial spirit and ability to tackle complex challenges.
+                </p>
+                <p>
+                    My diverse background, ranging from software engineering to martial arts instruction, has taught me the value of discipline, creativity, and continuous learning. Whether I'm developing AI-powered tools, exploring the intricacies of active inference, or training in the boxing ring, I always strive for excellence and innovation.
+                </p>
+                <p>
+                    I'm always eager to  collaborate on exciting projects or engage in thought-provoking discussions. Feel free to reach out if you'd like to chat about AI, mathematics, boxing, MMA or any cool ideas you might have!
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoLink = document.getElementById('logo-link');
+            logoLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                window.location.href = this.getAttribute('href');
+            });
+        });
+    </script>
+</body>
+</html>
