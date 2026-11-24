@@ -15,7 +15,7 @@ body {
   color-scheme: light;
   color: var(--ink);
   background: var(--paper);
-  font-family: "Chap", system-ui, sans-serif;
+  font-family: "Marcellus", system-ui, sans-serif;
 }
 .right-hand-page {
   --display-height: 100vh;
@@ -73,7 +73,7 @@ h1 {
   top: .012em;
   left: -.105em;
   margin: 0;
-  font: 400 min(calc(var(--hand-height) * .118), calc(100cqi / 9.8))/.95 "Chap", system-ui, sans-serif;
+  font: 400 min(calc(var(--hand-height) * .118), calc(100cqi / 10))/.95 "Marcellus", system-ui, sans-serif;
   letter-spacing: -.046em;
   white-space: nowrap;
 }
@@ -98,7 +98,7 @@ nav {
   align-items: baseline;
   column-gap: clamp(.65rem, min(var(--hand-height) * .03, (var(--nav-room) - 16rem) / 4), 1.75rem);
   row-gap: .65rem;
-  font: 400 clamp(.875rem, var(--hand-height) * .023, 1.25rem)/1.05 "Chap", system-ui, sans-serif;
+  font: 400 clamp(.875rem, var(--hand-height) * .023, 1.25rem)/1.05 "Marcellus", system-ui, sans-serif;
 }
 .nav-row {
   display: flex;
