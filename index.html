@@ -1,84 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Madhavan Panchangam - Home</title>
-    <!-- Include Roboto font -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
-    <!-- Link to external CSS -->
-    <link rel="stylesheet" href="css/landing-styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Madhavan Panchangam</title>
+<link rel="preload" as="image" href="/site/images/hand.svg" fetchpriority="high">
+<link rel="preload" as="font" href="/site/fonts/Chap-Regular.woff2" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add('home-loading');</script>
+<link rel="stylesheet" href="/site/css/type.css">
+<link rel="stylesheet" href="/site/css/home.css">
+<script>
+if (navigator.userAgent.includes('iPhone')) {
+  const portrait = matchMedia('(orientation: portrait)');
+  const measureScreen = () => {
+    if (portrait.matches) {
+      document.documentElement.style.setProperty('--portrait-screen-height', screen.height + 'px');
+    }
+  };
+  measureScreen();
+  portrait.addEventListener('change', measureScreen);
+}
+</script>
 </head>
 <body>
-    <!-- Canvas Element -->
-    <canvas id="canvas"></canvas>
-    <div class="container">
-        <!-- Navigation Component -->
-        <div class="scaling-wrapper" id="navigation">
-            <svg class="svg-container" width="400" height="400" viewBox="0 0 400 400">
-                <!-- Define circle paths -->
-                <defs>
-                    <!-- Circle paths for each navigation item -->
-                    <path id="circle1" d="M200,200 m-145,0 a145,145 0 1,1 290,0 a145,145 0 1,1 -290,0" />
-                    <path id="circle2" d="M200,200 m-145,0 a145,145 0 1,1 290,0 a145,145 0 1,1 -290,0" transform="rotate(60,200,200)" />
-                    <path id="circle3" d="M200,200 m-145,0 a145,145 0 1,1 290,0 a145,145 0 1,1 -290,0" transform="rotate(120,200,200)" />
-                    <path id="circle4" d="M200,200 m-145,0 a145,145 0 1,1 290,0 a145,145 0 1,1 -290,0" transform="rotate(180,200,200)" />
-                    <path id="circle5" d="M200,200 m-145,0 a145,145 0 1,1 290,0 a145,145 0 1,1 -290,0" transform="rotate(240,200,200)" />
-                    <path id="circle6" d="M200,200 m-145,0 a145,145 0 1,1 290,0 a145,145 0 1,1 -290,0" transform="rotate(300,200,200)" />
-                </defs>
-                <!-- Text along paths -->
-                <a href="site/portfolio.html">
-                    <text font-size="18" text-anchor="middle" font-weight="bold">
-                        <textPath xlink:href="#circle1" startOffset="50%">FOLIO</textPath>
-                    </text>
-                </a>
-                <a href="site/work.html">
-                    <text font-size="18" text-anchor="middle" font-weight="bold">
-                        <textPath xlink:href="#circle2" startOffset="50%">WORK</textPath>
-                    </text>
-                </a>
-                <a href="site/about.html">
-                    <text font-size="18" text-anchor="middle" font-weight="bold">
-                        <textPath xlink:href="#circle3" startOffset="50%">ABOUT</textPath>
-                    </text>
-                </a>
-                <a href="site/contact.html">
-                    <text font-size="18" text-anchor="middle" font-weight="bold">
-                        <textPath xlink:href="#circle4" startOffset="50%">CONTACT</textPath>
-                    </text>
-                </a>
-                <a href="site/blog.html">
-                    <text font-size="18" text-anchor="middle" font-weight="bold">
-                        <textPath xlink:href="#circle5" startOffset="50%">BLOG</textPath>
-                    </text>
-                </a>
-                <a href="site/study.html">
-                    <text font-size="18" text-anchor="middle" font-weight="bold">
-                        <textPath xlink:href="#circle6" startOffset="50%">STUDY</textPath>
-                    </text>
-                </a>
-            </svg>
-        </div>
-        <!-- Logo Component -->
-        <a href="site/contact.html" class="logo-container" id="logo-link">
-            <div class="logo" id="logo">
-                <span class="bracket">[</span>
-                <div class="vector-content">
-                    <span>M</span>
-                    <span>P</span>
-                </div>
-                <span class="bracket">]</span>
-            </div>
-            <div class="circle" id="circle"></div>
-            <!-- Magnitude Bars -->
-            <div class="vector-bars">
-                <div class="vector-bar"></div>
-                <div class="vector-bar"></div>
-                <div class="vector-bar"></div>
-                <div class="vector-bar"></div>
-            </div>
-        </a>
+<main class="home" aria-labelledby="madpanch-right-hand-title">
+  <div class="right-hand-page">
+    <div class="right-hand-content">
+      <div class="heading-space">
+        <h1 id="madpanch-right-hand-title">Madhavan <span class="surname">Panchangam</span></h1>
+      </div>
+      <img class="right-hand-art" src="/site/images/hand.svg" fetchpriority="high" width="459" height="976" alt="Graphite sketch of a hand with one finger extended" draggable="false">
+      <nav aria-label="Main navigation">
+        <span class="nav-row">
+          <a href="/work">Work</a>
+          <a href="https://x.com/madpanch">Twitter</a>
+        </span>
+        <span class="nav-row">
+          <a href="https://www.linkedin.com/in/madhavan-panchangam-79415125b/?isSelfProfile=true">LinkedIn</a>
+          <a href="mailto:mpanchangam.18@gmail.com">Email</a>
+        </span>
+      </nav>
     </div>
-    <!-- Link to external JavaScript -->
-    <script src="js/landing-scripts.js"></script>
+  </div>
+</main>
+<script>
+(() => {
+  const art = document.querySelector('.right-hand-art');
+  Promise.allSettled([
+    art.decode(),
+    document.fonts.load('400 1rem "Chap"')
+  ]).then(() => document.documentElement.classList.remove('home-loading'));
+})();
+</script>
 </body>
 </html>

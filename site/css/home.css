@@ -1,0 +1,173 @@
+html {
+  background: #233e66;
+  overscroll-behavior-y: none;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+{
+  --paper: #233E66;
+  --ink: #D0D6DE;
+  container-type: inline-size;
+  color-scheme: light;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Chap", system-ui, sans-serif;
+}
+.right-hand-page {
+  --display-height: 100vh;
+  --controls-height: var(--display-height);
+  --art-bleed: calc(var(--controls-height) * .032);
+  --page-height: calc(var(--display-height) + var(--art-bleed));
+  --margin: clamp(1.125rem, var(--controls-height) * .048, 3rem);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --tip-alignment: 1px;
+  --hand-height: calc(var(--page-height) - var(--margin) - var(--safe-top) - var(--tip-alignment));
+  --art-width: calc(var(--hand-height) * 459 / 975.5);
+  --art-right: calc(var(--margin) * .65);
+  /* The fingertip is about 70% of the way across the original drawing. */
+  --title-room: calc(100cqi - var(--safe-left) - var(--safe-right) - var(--art-right) - var(--art-width) * .30 - var(--margin) * 2 - var(--headline-clearance, 0px));
+  position: relative;
+  height: var(--display-height);
+  overflow: clip;
+  touch-action: pinch-zoom;
+}
+html.home-loading .right-hand-content {
+  visibility: hidden;
+}
+.right-hand-content {
+  position: relative;
+  height: var(--page-height);
+  overflow: clip;
+}
+@supports (height: 100lvh) {
+  .right-hand-page {
+    --display-height: 100lvh;
+    --controls-height: 100svh;
+  }
+}
+/* Give the drawing room to continue beneath the floating iPhone toolbar. */
+@supports (height: 100lvh) and (-webkit-touch-callout: none) {
+  @media (max-width: 640px) and (orientation: portrait) and (pointer: coarse) {
+    .right-hand-page {
+      --display-height: max(100lvh, calc((100lvh + var(--portrait-screen-height, 0px)) / 2));
+    }
+  }
+}
+.heading-space {
+  position: absolute;
+  z-index: 1;
+  top: calc(var(--margin) + var(--safe-top));
+  left: calc(var(--margin) + var(--safe-left));
+  inline-size: var(--title-room);
+  container: heading-space / inline-size;
+}
+h1 {
+  position: relative;
+  top: .012em;
+  left: -.105em;
+  margin: 0;
+  font: 400 min(calc(var(--hand-height) * .118), calc(100cqi / 9.8))/.95 "Chap", system-ui, sans-serif;
+  letter-spacing: -.046em;
+  white-space: nowrap;
+}
+.right-hand-art {
+  position: absolute;
+  top: calc(var(--margin) + var(--safe-top) + var(--tip-alignment));
+  right: calc(var(--art-right) + var(--safe-right) - var(--art-shift, 0px) - var(--desktop-art-shift, 0px));
+  width: var(--art-width);
+  height: var(--hand-height);
+  display: block;
+  user-select: none;
+}
+nav {
+  position: absolute;
+  z-index: 1;
+  bottom: calc(var(--page-height) - var(--controls-height) + var(--margin) + var(--safe-bottom) - .13em);
+  left: calc(var(--margin) + var(--safe-left) - .125em);
+  --nav-room: calc(100cqi - var(--safe-left) - var(--safe-right) - var(--art-right) - var(--art-width) * .82 - var(--margin) * 2);
+  max-width: max(0px, var(--nav-room));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: clamp(.65rem, min(var(--hand-height) * .03, (var(--nav-room) - 16rem) / 4), 1.75rem);
+  row-gap: .65rem;
+  font: 400 clamp(.875rem, var(--hand-height) * .023, 1.25rem)/1.05 "Chap", system-ui, sans-serif;
+}
+.nav-row {
+  display: flex;
+  align-items: baseline;
+  column-gap: inherit;
+}
+nav a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+@media (max-width: 640px) and (orientation: portrait) {
+  .right-hand-page {
+    --art-shift: clamp(.45rem, 2.65cqi, .85rem);
+    /* Let the drawing bleed right while keeping the fingertip in view. */
+    --art-right: max(
+      calc(var(--margin) * .55 - var(--art-width) * .225),
+      min(calc(var(--margin) * .55), calc(52cqi - var(--art-width) * .775))
+    );
+  }
+  nav {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    max-width: none;
+    column-gap: .65rem;
+  }
+}
+@container heading-space (width < 19rem) {
+  h1 {
+    font-size: min(calc(var(--hand-height) * .102), calc(100cqi / 4.9));
+  }
+  .surname {
+    display: none;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .right-hand-page {
+    --headline-clearance: clamp(.85rem, 2.2cqi, 2rem);
+  }
+  @media (min-width: 641px) {
+    .right-hand-page {
+      --desktop-art-shift: min(var(--margin) * .35, 1.25cqi);
+    }
+  }
+  @container heading-space (width < max(30rem, 39svh)) {
+    h1 {
+      font-size: min(calc(var(--hand-height) * .102), calc(100cqi / 4.9));
+    }
+    .surname {
+      display: none;
+    }
+  }
+  @media (max-height: 420px) {
+    h1 {
+      font-size: min(calc(var(--hand-height) * .102), calc(100cqi / 4.9));
+    }
+    .surname {
+      display: none;
+    }
+  }
+}
+@media (pointer: coarse) {
+  nav a {
+    display: flex;
+    align-items: end;
+    min-height: 44px;
+  }
+  nav {
+    row-gap: 0;
+  }
+}

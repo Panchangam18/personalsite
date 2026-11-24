@@ -1,0 +1,200 @@
+:root {
+  --ink: #233e66;
+  --paper: #d0d6de;
+  color-scheme: light;
+  overscroll-behavior-y: none;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1rem/1.45 "Chap", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  container-type: inline-size;
+}
+
+.section-shell {
+  box-sizing: border-box;
+  width: min(100%, 75rem);
+  margin-inline: auto;
+  padding-inline: clamp(2rem, 14vw, 12rem);
+  padding-block: clamp(1.75rem, 5vw, 4.25rem) clamp(3rem, 7vw, 6rem);
+}
+
+@media (min-width: 64rem) {
+  .section-shell {
+    padding-inline: min(19vw, 16rem);
+  }
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+}
+
+.back-home {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  gap: .35em;
+  min-height: 44px;
+  margin-bottom: clamp(.75rem, 2vw, 1.4rem);
+  text-decoration: none;
+}
+
+.back-home img {
+  display: block;
+  width: .78em;
+  height: auto;
+  flex: none;
+  transform: translateY(-.08em);
+}
+
+.back-home:hover {
+  color: color-mix(in srgb, var(--ink) 73%, black);
+}
+
+.back-home:hover img {
+  filter: brightness(.73);
+}
+
+h1, h2, p, figure {
+  margin: 0;
+}
+
+.work-hero {
+  --work-art-width: min(84cqi, 38rem);
+  --work-art-angle: -29deg;
+  --work-finger-center: .0925;
+  --work-hand-lift: .12;
+  --work-hand-level: calc(clamp(1.1rem, 2.06vw, 1.96rem) - var(--work-art-width) * var(--work-hand-lift));
+  --work-hand-drop: .213;
+  position: relative;
+  height: calc(var(--work-hand-level) + var(--work-art-width) * var(--work-hand-drop));
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.work-artwork {
+  position: absolute;
+  top: calc(var(--work-hand-level) - var(--work-art-width) * .51);
+  left: calc(50% - 50cqi);
+  width: 100cqi;
+  height: calc(var(--work-art-width) * .8);
+  overflow: clip;
+  pointer-events: none;
+}
+
+.work-artwork img {
+  position: absolute;
+  top: calc(var(--work-art-width) * .51);
+  left: calc(50% + var(--work-art-width) * var(--work-finger-center) - var(--work-hand-nudge, 0px));
+  width: var(--work-art-width);
+  height: auto;
+  /* Rotate around the palm, then center the measured finger edges for each angle. */
+  transform: translate(-32%, -29%) rotate(var(--work-art-angle));
+  transform-origin: 32% 29%;
+}
+
+@media (width < 735px) {
+  .work-hero {
+    --work-hand-nudge: clamp(.6rem, 3vw, 1.15rem);
+  }
+}
+
+@media (min-width: 735px) {
+  .work-hero {
+    --work-art-angle: -53deg;
+    --work-finger-center: .0259;
+    --work-hand-lift: .2;
+    --work-hand-drop: .282;
+  }
+}
+
+.project-list {
+  --project-spacing: clamp(2.75rem, 5.5vw, 4rem);
+  display: grid;
+  gap: var(--project-spacing);
+  padding-top: var(--project-spacing);
+}
+
+@media (min-width: 64rem) {
+  .project-list {
+    --project-spacing: 2.5rem;
+  }
+}
+
+.project-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .15rem .85rem;
+  margin-bottom: .28rem;
+}
+
+.project time {
+  font-size: .85rem;
+  color: color-mix(in srgb, var(--ink) 80%, var(--paper));
+}
+
+.project h2 {
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -.028em;
+}
+
+.project h2 a {
+  position: relative;
+  display: inline-block;
+  padding-bottom: .16em;
+  text-decoration: none;
+}
+
+.project h2 a::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: .16em;
+  background: var(--pencil-image, url("/site/images/project-underline.svg#stroke-1"))
+    center / 100% 100% no-repeat;
+  opacity: .8;
+  transform: rotate(var(--pencil-tilt, -.2deg)) scaleX(var(--pencil-direction, 1));
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.project:nth-child(4n + 2) {
+  --pencil-image: url("/site/images/project-underline.svg#stroke-2");
+  --pencil-tilt: .3deg;
+}
+
+.project:nth-child(4n + 3) {
+  --pencil-image: url("/site/images/project-underline.svg#stroke-3");
+  --pencil-direction: -1;
+  --pencil-tilt: .15deg;
+}
+
+.project:nth-child(4n + 4) {
+  --pencil-image: url("/site/images/project-underline.svg#stroke-4");
+  --pencil-tilt: -.4deg;
+}
+
+.project h2 a:hover {
+  color: color-mix(in srgb, var(--ink) 73%, black);
+}
+
+.project p {
+  font-size: clamp(1rem, 1.55vw, 1.13rem);
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--ink) 88%, var(--paper));
+}
