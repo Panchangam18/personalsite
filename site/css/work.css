@@ -5,7 +5,7 @@
   overscroll-behavior-y: none;
   background: var(--paper);
   color: var(--ink);
-  font: 400 1rem/1.45 "Marcellus", system-ui, sans-serif;
+  font: 400 1rem/1.45 "Tenor Sans", system-ui, sans-serif;
 }
 
 body {
