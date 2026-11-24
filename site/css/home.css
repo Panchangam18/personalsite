@@ -8,7 +8,7 @@ body {
   overflow: hidden;
 }
 
-{
+.home {
   --paper: #233E66;
   --ink: #D0D6DE;
   container-type: inline-size;

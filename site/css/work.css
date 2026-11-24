@@ -165,28 +165,39 @@ h1, h2, p, figure {
   position: absolute;
   inset: auto 0 0;
   height: .16em;
-  background: var(--pencil-image, url("/site/images/project-underline.svg#stroke-1"))
-    center / 100% 100% no-repeat;
+  background: url("/site/images/project-underline.svg") center / 100% 100% no-repeat;
+  /* Ease out the traced ends without changing the weight through the middle. */
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black var(--pencil-start, 4%),
+    black var(--pencil-end, 96%),
+    transparent
+  );
   opacity: .8;
-  transform: rotate(var(--pencil-tilt, -.2deg)) scaleX(var(--pencil-direction, 1));
-  transform-origin: center;
+  transform: rotate(var(--pencil-tilt, -.2deg)) scaleX(var(--pencil-width, 1));
   pointer-events: none;
 }
 
 .project:nth-child(4n + 2) {
-  --pencil-image: url("/site/images/project-underline.svg#stroke-2");
+  --pencil-start: 8%;
+  --pencil-end: 97%;
   --pencil-tilt: .3deg;
+  --pencil-width: -.98;
 }
 
 .project:nth-child(4n + 3) {
-  --pencil-image: url("/site/images/project-underline.svg#stroke-3");
-  --pencil-direction: -1;
+  --pencil-start: 3%;
+  --pencil-end: 92%;
   --pencil-tilt: .15deg;
+  --pencil-width: .96;
 }
 
 .project:nth-child(4n + 4) {
-  --pencil-image: url("/site/images/project-underline.svg#stroke-4");
+  --pencil-start: 6%;
+  --pencil-end: 94%;
   --pencil-tilt: -.4deg;
+  --pencil-width: -1;
 }
 
 .project h2 a:hover {
