@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Madhavan Panchangam</title>
 <link rel="preload" as="image" href="/site/images/hand.svg" fetchpriority="high">
-<link rel="preload" as="font" href="/site/fonts/ElMessiri-Regular.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="/site/fonts/Belleza-Regular.woff2" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add('home-loading');</script>
-<link rel="stylesheet" href="/site/css/type.css?v=5">
-<link rel="stylesheet" href="/site/css/home.css?v=7">
+<link rel="stylesheet" href="/site/css/type.css?v=6">
+<link rel="stylesheet" href="/site/css/home.css?v=8">
 <script>
 if (navigator.userAgent.includes('iPhone')) {
   const portrait = matchMedia('(orientation: portrait)');
@@ -48,7 +48,7 @@ if (navigator.userAgent.includes('iPhone')) {
   const art = document.querySelector('.right-hand-art');
   Promise.allSettled([
     art.decode(),
-    document.fonts.load('400 1rem "El Messiri"')
+    document.fonts.load('400 1rem "Belleza"')
   ]).then(() => document.documentElement.classList.remove('home-loading'));
 })();
 </script>
